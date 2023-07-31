@@ -65,9 +65,9 @@ def pred_and_plot(model, filename, class_names=class_names):
 
     # logic for multiclass vs binary
     if len(pred[0]) > 1:
-    pred_class = class_names[tf.argmax(pred[0])]
+        pred_class = class_names[tf.argmax(pred[0])]
     else:
-    pred_class = class_names[int(tf.round(pred[0]))]
+        pred_class = class_names[int(tf.round(pred[0]))]
 
     # plot the image and predicted class
     plt.imshow(img)
