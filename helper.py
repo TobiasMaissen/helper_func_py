@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import tensorflow_hub as hub
 import tensorflow as tf
 import datetime
+import zipfile
 
 
 ##############################################################################################################
@@ -209,3 +210,19 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
     # Save the figure to the current working directory
     if savefig:
         fig.savefig("confusion_matrix.png")
+
+
+##############################################################################################################
+def unzip_data(filename):
+    """
+    Unzips filename into the current working directory.
+
+    Args:
+    filename (str): a filepath to a target zip folder to be unzipped.
+    """
+    zip_ref = zipfile.ZipFile(filename, "r")
+    zip_ref.extractall()
+    zip_ref.close()
+
+
+##############################################################################################################
