@@ -50,7 +50,7 @@ def load_and_prep_image(filename, img_shape=224):
 
 
 ##############################################################################################################
-def pred_and_plot(model, filename, class_names=class_names):
+def pred_and_plot(model, filename, class_names):
     """
     Imports an image at filename, makes a prediction,
     plots the image with predicted class as the title
@@ -73,3 +73,4 @@ def pred_and_plot(model, filename, class_names=class_names):
     plt.imshow(img)
     plt.title(f"Prediction: {pred_class}")
     plt.axis(False);
+    
