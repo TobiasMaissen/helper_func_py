@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 import tensorflow as tf
 
+##############################################################################################################
+def test_helper_file(some_input):
+    print(some_input)
 
 ##############################################################################################################
 def plot_loss_curves(history):
