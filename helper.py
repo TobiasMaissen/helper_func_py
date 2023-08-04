@@ -3,6 +3,10 @@ import tensorflow_hub as hub
 import tensorflow as tf
 import datetime
 import zipfile
+import itertools
+import numpy as np
+from sklearn.metrics import confusion_matrix
+import os
 
 
 ##############################################################################################################
@@ -131,12 +135,8 @@ def create_tensorboard_callback(dir_name, experiment_name):
 
 ##############################################################################################################
 # plot_confusion_matrix function - https://scikit-learn.org/stable/modules/generated/sklearn.metrics.plot_confusion_matrix.html
-import itertools
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.metrics import confusion_matrix
-
 # Our function needs a different name to sklearn's plot_confusion_matrix
+
 def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15, norm=False, savefig=False): 
     """Makes a labelled confusion matrix comparing predictions and ground truth labels.
 
@@ -226,3 +226,19 @@ def unzip_data(filename):
 
 
 ##############################################################################################################
+def walk_through_dir(dir_path):
+    """
+    Walks through dir_path returning its contents.
+
+    Args:
+    dir_path (str): target directory
+
+    Returns:
+    A print out of:
+      number of subdiretories in dir_path
+      number of images (files) in each subdirectory
+      name of each subdirectory
+    """
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
+    
